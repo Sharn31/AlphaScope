@@ -1,0 +1,15 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+/* Compact Layout */
+.compact .p-6 { padding: 1rem !important; }
+.compact .p-5 { padding: 0.75rem !important; }
+.compact .p-4 { padding: 0.625rem !important; }
+.compact .mb-8 { margin-bottom: 1.25rem !important; }
+.compact .mb-5 { margin-bottom: 0.75rem !important; }
+.compact .mb-4 { margin-bottom: 0.5rem !important; }
+.compact .gap-4 { gap: 0.75rem !important; }
+.compact .space-y-4 > * + * { margin-top: 0.5rem !important; }
+.compact .py-2\.5 { padding-top: 0.375rem !important; padding-bottom: 0.375rem !important; }
+.compact .text-3xl { font-size: 1.5rem !important; }
+.compact .rounded-2xl { border-radius: 0.75rem !important; }

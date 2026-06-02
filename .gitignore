@@ -1,0 +1,21 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+.env.*
+
+# Node
+node_modules/
+
+# Celery
+celerybeat-schedule.*
+celerybeat-schedule
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
