@@ -15,6 +15,8 @@ from datetime import timedelta
 import os
 from dotenv import load_dotenv
 from decouple import config
+import os
+
 import smtplib
 
 load_dotenv()
@@ -146,7 +148,7 @@ WSGI_APPLICATION = 'alphascope.wsgi.application'
 #         'PORT':'3306'
 #     }
 # }
-import os
+
 
 DATABASES = {
     'default': {
