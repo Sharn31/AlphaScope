@@ -149,12 +149,11 @@ WSGI_APPLICATION = 'alphascope.wsgi.application'
 #     }
 # }
 
-
-ALLOWED_HOSTS = config(
-    "ALLOWED_HOSTS",
-    default="alphascope-4fa7.onrender.com",
-    cast=lambda v: [s.strip() for s in v.split(",")]
-)
+ALLOWED_HOSTS = [
+    'alphascope-4fa7.onrender.com',
+    '127.0.0.1',
+    'localhost'
+]
 
 DATABASES = {
     'default': {
