@@ -1,4 +1,5 @@
-export const BASE_URL = "http://127.0.0.1:8000";
+// export const BASE_URL = "http://127.0.0.1:8000";
+export const BASE_URL = "https://alphascope-4fa7.onrender.com";
 
 // 🔐 Auth Fetch Wrapper
 export async function authFetch(url: string, options: RequestInit = {}) {

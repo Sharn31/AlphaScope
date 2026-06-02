@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, ReactNode } from "react";
+import { BASE_URL } from "../lib/api";
 
 interface User {
   id: number;
@@ -42,7 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = async (email: string, password: string) => {
-    const res = await fetch("http://127.0.0.1:8000/accounts/login/", {  // ✅ fixed
+    const res = await fetch(`${BASE_URL}/accounts/login/`, {  // ✅ fixed
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -71,7 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signup = async (name: string, email: string, password: string) => {
-    const res = await fetch("http://127.0.0.1:8000/accounts/signup/", {  // ✅ fixed
+    const res = await fetch(`${BASE_URL}/accounts/signup/`, {  // ✅ fixed
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
