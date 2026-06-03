@@ -51,13 +51,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# CACHES = {
+#     "default": {
+#         "BACKEND":  "django.core.cache.backends.db.DatabaseCache",
+#         "LOCATION": "alphascope_cache",   # table name in your DB
+#     }
+# }
 CACHES = {
     "default": {
-        "BACKEND":  "django.core.cache.backends.db.DatabaseCache",
-        "LOCATION": "alphascope_cache",   # table name in your DB
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "alphascope-cache",
     }
 }
-
 # Application definition
 
 INSTALLED_APPS = [
