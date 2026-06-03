@@ -1276,3 +1276,14 @@ class NewsAlertDetailView(APIView):
             return Response({"message": "Deleted"}, status=HTTP_200_OK)
         except NewsSymbolAlert.DoesNotExist:
             return Response({"error": "Not found"}, status=HTTP_404_NOT_FOUND)
+        
+#Cron views
+class CronTestView(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request):
+        return Response({
+            "success": True,
+            "message": "Cron is working"
+        })
