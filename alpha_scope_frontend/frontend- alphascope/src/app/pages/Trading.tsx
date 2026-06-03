@@ -35,8 +35,10 @@ import {
 } from "../components/skeletons/Skeletons";
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
-const BASE    = "http://localhost:8000/market";
-const WS_BASE = "ws://127.0.0.1:8000";
+// const BASE    = "http://localhost:8000/market";
+// const WS_BASE = "ws://127.0.0.1:8000";
+const BASE = import.meta.env.VITE_API_URL + "/market";
+const WS_BASE = import.meta.env.VITE_WS_URL;
 
 const authHeaders = () => {
   const token = localStorage.getItem("jwt_token");
