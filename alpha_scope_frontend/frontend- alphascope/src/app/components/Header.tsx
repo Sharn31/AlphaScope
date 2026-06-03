@@ -113,7 +113,10 @@ export default function Header() {
     wsRef.current?.close()
     setWsLive(false)
     const symbols = TICKER_SYMBOLS.join(",")
-    const ws = new WebSocket(`ws://127.0.0.1:8000/ws/prices/?symbols=${symbols}`)
+    //const ws = new WebSocket(`ws://127.0.0.1:8000/ws/prices/?symbols=${symbols}`)
+    const ws = new WebSocket(
+  `wss://alphascope-4fa7.onrender.com/ws/prices/?symbols=${symbols}`
+)
     ws.onopen  = () => setWsLive(true)
     ws.onclose = () => { setWsLive(false); setTimeout(connectWS, 5000) }
     ws.onerror = () => setWsLive(false)
