@@ -5,7 +5,7 @@ from .views import ( StockPriceView,YahooStockAPI,FinhubAPI,FinnhubNewsAPI,Stock
                     StockSearchView,ClearChatHistoryView,ChatHistoryView,PortfolioDetailView,
                     WatchlistDetailView,AlertDetailView,MarketNewsAPI,NewsSentimentAPI,HoldingsDetailView,
                     NewsAlertDetailView,NewsDigestToggleView,NewsListView,NewsSendDigestView,NewsAlertListView,
-                    CronTestView
+                    CronAlertView,CronNewsView
 )
 
 urlpatterns = [
@@ -42,7 +42,8 @@ urlpatterns = [
     path("news/alerts/<int:pk>/", NewsAlertDetailView.as_view()),
     path("news/digest/toggle/",   NewsDigestToggleView.as_view()),
     path("news/send-digest/",     NewsSendDigestView.as_view()),
-    path("internal/cron/test/",CronTestView.as_view(),),
+    path("internal/cron/alerts/",CronAlertView.as_view(),),
+    path("internal/cron/news/",CronNewsView.as_view(),),
     
 
     

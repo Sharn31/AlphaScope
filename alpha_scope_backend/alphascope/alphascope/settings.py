@@ -236,6 +236,8 @@ CELERY_BEAT_SCHEDULE = {
 
 
 
+CRON_SECRET = os.getenv("CRON_SECRET", "")
+
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 

@@ -33,6 +33,7 @@ from market.services.yahoo_service import search_stocks
 from market.ai.strategy_signals import get_ml_signal, get_rl_signal, get_llm_signal
 from django.core.cache import cache
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from .tasks import stock_alert_agent,stock_news_agent
 # Create your views here.
 
 class StockPriceView(APIView):
@@ -1278,12 +1279,41 @@ class NewsAlertDetailView(APIView):
             return Response({"error": "Not found"}, status=HTTP_404_NOT_FOUND)
         
 #Cron views
-class CronTestView(APIView):
+class CronAlertView(APIView):
     authentication_classes = []
     permission_classes = []
 
-    def get(self, request):
+    def post(self, request):
+
+        if request.headers.get("X-Cron-Secret") != settings.CRON_SECRET:
+            return Response(
+                {"error": "Forbidden"},
+                status=403
+            )
+
+        stock_alert_agent()
+
         return Response({
             "success": True,
-            "message": "Cron is working"
+            "message": "Alerts processed"
+        })
+
+
+class CronNewsView(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def post(self, request):
+
+        if request.headers.get("X-Cron-Secret") != settings.CRON_SECRET:
+            return Response(
+                {"error": "Forbidden"},
+                status=403
+            )
+
+        stock_news_agent()
+
+        return Response({
+            "success": True,
+            "message": "News digest processed"
         })
